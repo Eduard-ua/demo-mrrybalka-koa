@@ -1,0 +1,8 @@
+{
+  "verbose": true,
+  "quiet": false,
+  "server": "./src/templates/views/index.njk",
+  "watch": ["./"],
+  "ext": "js, scss, html",
+  "exec": "npm run build-css && node app.js"
+}

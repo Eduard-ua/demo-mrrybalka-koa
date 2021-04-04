@@ -1,0 +1,77 @@
+.header {
+    position: relative;
+    // background-color: #F9FAFC;
+}
+
+.password-reset {
+    padding-top: 57px;
+    position: relative;
+    font-family: $Exo-2;
+    font-weight: 600;
+    text-align: center;
+    width: 650px;
+    // border: 1px solid red;
+    box-sizing: border-box;
+
+    &:before {
+        content: "";
+        position: absolute;
+        z-index: -1;
+        width: 437px;
+        height: 437px;
+        box-sizing: border-box;
+        border-radius: 50%;
+        // border : 5px solid red;
+        top: 0;
+        left: 0;
+        right: 0;
+        margin: 0 auto;
+        background: rgba(254, 254, 254, 0.54);
+        box-shadow: 0px 0px 42px rgba(231, 231, 231, 0.11),
+      0px 0px 0px 90px rgba(254, 254, 254, 0.54),
+      0px 0px 164px 132px rgba(231, 231, 231, 0.11),
+      0px 0px 0px 170px rgba(254, 254, 254, 0.54),
+      0px 0px 212px rgba(254, 254, 254, 0.54),
+      0px 0px 0px 240px rgba(254, 254, 254, 0.54),
+      0px 0px 272px rgba(231, 231, 231, 0.11);
+        @include bp-576 {
+            width: 100vw;
+            height: 100vw;
+        }
+    }
+
+    &__image {
+        position: relative;
+        width: 150px;
+        height: 170px;
+        margin-bottom: 30px;
+        @include bp-576 {
+            width: 100px;
+            height: 115px;
+        }
+    }
+
+    &__title {
+        position: relative;
+        color: #2A74DB;
+        font-size: 48px;
+        line-height: 48px;
+        letter-spacing: 0.4px;
+        margin: 10px 0;
+        @include bp-576 {
+            font-size: 24px;
+            line-height: 24px;
+        }
+    }
+
+    &__subtitle {
+        font-size: 24px;
+        line-height: 24px;
+        color: #000000;
+        margin: 10px 0;
+        @include bp-576 {
+            font-size: 18px;
+            line-height: 16px;
+        }
+    }
+} 

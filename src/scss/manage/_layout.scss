@@ -1,0 +1,212 @@
+// variables
+@import "../core/variables";
+
+// Mixins
+@import "../core/mixins";
+
+// More practical CSS...
+// using mobile first method (IE8,7 requires respond.js polyfill https://github.com/scottjehl/Respond)
+
+$breakpoint-alpha: 576px; // adjust to your needs
+
+.manage {
+  width: 100%;
+  box-sizing: border-box;
+
+  &__search {
+    &-field {
+      text-align: right;
+      box-sizing: border-box;
+
+      @include bp-576 {
+        text-align: center;
+      }
+    }
+
+    &-input {
+      margin-left: 10px;
+      min-width: 180px;
+      // max-width: 250px;
+      padding: 5px 10px;
+      border: none;
+    }
+
+    &-label {
+      display: inline-block;
+      vertical-align: middle;
+      width: 15px;
+      height: 15px;
+      background-position: center center;
+      background-repeat: repeat;
+      background-size: contain;
+      background-image: url("../img/search_icon.svg");
+    }
+  }
+}
+
+.manage__table {
+  background: #ffffff;
+  font-weight: 300;
+  font-size: 14px;
+  line-height: 28px;
+  border-radius: 0.4em;
+  overflow: hidden;
+  margin: 1em 0;
+  min-width: 300px; // adjust to your needs
+  width: 100%;
+
+  @include bp-576 {
+    min-width: 260px;
+  }
+
+  &-tr {
+    border: 1px solid #eef2f7;
+  }
+
+  &-tr:first-of-type {
+    border-top: none;
+  }
+
+  &-th {
+    display: none; // for accessibility, use a visually hidden method here instead! Thanks, reddit!
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 14px;
+    letter-spacing: 0.6px;
+    text-transform: uppercase;
+    background-color: #f5f7fa;
+    color: #01134e;
+  }
+
+  &-td {
+    display: block;
+
+    // &:first-child {
+    //   padding-top: 0.5em;
+    // }
+    // &:last-child {
+    //   padding-bottom: 0.5em;
+    // }
+
+    &:before {
+      content: attr(data-th) ": "; // who knew you could do this? The internet, that's who.
+      font-weight: bold;
+
+      // optional stuff to make it look nicer
+      width: 6.5em; // magic number :( adjust according to your own content
+      display: inline-block;
+      // end options
+
+      @media (min-width: $breakpoint-alpha) {
+        display: none;
+      }
+    }
+  }
+
+  &-last-column {
+    width: 8% im !important;
+    text-align: center;
+  }
+
+  &-delete-row {
+    background-image: url("../img/table-close.svg");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center center;
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    cursor: pointer;
+  }
+}
+
+.manage__table-th,
+.manage__table-td {
+  text-align: left;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  width: 15%;
+  box-sizing: border-box;
+
+  @include bp-576 {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    width: auto;
+  }
+
+  &:first-child {
+    padding-left: 20px;
+
+    @include bp-576 {
+      padding-left: 0;
+      padding-top: 10px;
+    }
+  }
+
+  @media (min-width: $breakpoint-alpha) {
+    display: table-cell;
+    // padding: 0.25em 0.5em;
+
+    // &:first-child {
+    //   padding-left: 0;
+    // }
+
+    // &:last-child {
+    //   padding-right: 0;
+    // }
+  }
+}
+
+.manage__table-td {
+  &-level {
+    text-align: left;
+  }
+
+  &-select {
+    border: none;
+  }
+
+  &-option {
+    padding: 5px 5px 5px 0;
+  }
+}
+
+// presentational styling
+
+// @import "https://fonts.googleapis.com/css?family=Montserrat:300,400,700";
+
+// body {
+//   padding: 0 2em;
+//   font-family: Montserrat, sans-serif;
+//   -webkit-font-smoothing: antialiased;
+//   text-rendering: optimizeLegibility;
+//   color: #444;
+//   background: #eee;
+// }
+
+// h1 {
+//   font-weight: normal;
+//   letter-spacing: -1px;
+//   color: #34495e;
+// }
+
+// .manage__table {
+//   background: #ffffff;
+//   font-weight: 300;
+//   font-size: 14px;
+//   line-height: 28px;
+//   border-radius: 0.4em;
+//   overflow: hidden;
+
+//   // &-tr {
+//   //   border-color: lighten(#34495e, 10%);
+//   // }
+
+//   // th,
+//   // td {
+//   //   margin: 0.5em 1em;
+//   //   @media (min-width: $breakpoint-alpha) {
+//   //     padding: 1em !important;
+//   //   }
+//   // }
+// }

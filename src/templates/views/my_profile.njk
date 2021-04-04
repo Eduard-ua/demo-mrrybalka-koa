@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@600&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">    
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>myFixer</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+
+  <body>
+    <header class="header header-cabinet">
+      <ol class="breadcrumb">
+        <li class="breadcrumb__item">
+          <a href="#">Home</a>
+        </li>
+        <li class="breadcrumb__item">
+          <a href="#">My&nbsp;profile</a>
+        </li>
+      </ol>
+      
+      <ol class="personal-settings__list">
+        <li class="personal-settings__item">
+          <span>Faruh Bernandez</span>
+          <ul class="personal-settings__sublist">
+            <li class="personal-settings__subitem">
+              Settings
+            </li>
+            <li class="personal-settings__subitem">
+              Status
+            </li>
+            <li class="personal-settings__subitem">
+              Log Out
+            </li>
+          </ul>
+        </li>
+      </ol>
+    </header>
+    <main class="main main-cabinet">
+     <nav class="main-menu">
+        <a href="#" class="main-menu__logo">
+          <img src="./img/clear_logo.svg" alt="Logo" height="30" width="30">
+        </a>
+        <ul class="main-menu__list">
+          <li class="main-menu__item">
+            <a href="#">
+              <img src="./img/search.svg" alt="Search" class="main-menu__img" width="20" height="20">
+            </a>
+          </li>
+          <li class="main-menu__item main-menu__item-active">
+            <a href="#">
+              <img src="./img/person.svg" alt="My profile" class="main-menu__img" width="20" height="20">
+            </a>
+          </li>
+          <li class="main-menu__item">
+            <a href="#"></a>  
+              <img src="./img/messages.svg" alt="Messages" class="main-menu__img" width="20" height="20">
+            </a>
+          </li>
+          <li class="main-menu__item">
+            <a href="#">
+              <img src="./img/calendar.svg" alt="Calendar" class="main-menu__img" width="20" height="20">
+            </a>
+          </li>
+        </ul>
+     </nav>
+     <section class="cabinet">
+       <p class="cabinet__header">
+         <span class="cabinet__header-title cabinet__header-title-active cabinet__header-personal">
+          PERSONAL INFORMATION
+         </span>
+         <span class="cabinet__header-title cabinet__header-title-notactive cabinet__header-account">
+          ACCOUNT INFORMATION
+         </span>
+       </p>
+       <!-- visually-hidden -->
+       <article class="cabinet__information cabinet__information-personal ">
+        <figure class="cabinet__information-figure">
+          <img class="cabinet__information-img" src="./img/person_man.jpg" alt="Man in suit" width="136">
+          <figcaption class="cabinet__information-figcaption">Change photo</figcaption>
+        </figure>
+        <ul class="cabinet__list cabinet__list-personal">
+          <li class="cabinet__list-item">
+            <label for="first_name" class="cabinet__list-label">First name<br>
+              <input id="first_name" type="text" name="first_name" class="cabinet__list-input" value="Faruh">
+            </label>
+          </li>
+          <li class="cabinet__list-item">
+            <label for="last_name" class="cabinet__list-label">Last name<br>
+              <input id="last_name" type="text" name="last_name" class="cabinet__list-input" value="Bernandez">
+            </label>
+          </li>
+          <li class="cabinet__list-item">
+            <label for="title" class="cabinet__list-label">Title<br>
+              <select class="cabinet__list-input" name="title" id="title">
+                <option value="Mr">Mr</option>
+                <option value="Mrs">Mrs</option>
+              </select>
+              <!-- <input id="title" type="text" name="title" class="cabinet__list-input"> -->
+            </label>
+          </li>
+
+          <li class="cabinet__list-item">
+            <label for="phone" class="cabinet__list-label">MOBILE PHONE<br>
+              <select id="country-phone" class="cabinet__list-input cabinet__list-input-phone-country cabinet__list-input-phone-XX cabinet__list-input-phone-UA" name="phone-country" id="phone-country">
+                <option class="cabinet__list-input-phone-XX cabinet__list-input-phone-UA" value="+380">+380</option>
+                <option class="cabinet__list-input-phone-XX cabinet__list-input-phone-AE" value="+971">+971</option>
+                <option class="cabinet__list-input-phone-XX cabinet__list-input-phone-GB" value="+44">+44</option>
+                <option class="cabinet__list-input-phone-XX cabinet__list-input-phone-US" value="+1">+1</option>
+                <option class="cabinet__list-input-phone-XX cabinet__list-input-phone-UM" value="+246">+246</option>
+              </select> 
+              <!-- <input id="country-phone" type="text" name="country-phone" class="cabinet__list-input cabinet__list-input-phone-country"> -->
+              <input id="phone" type="text" name="phone" class="cabinet__list-input cabinet__list-input-phone">
+            </label>
+          </li>
+          <li class="cabinet__list-item">
+            <label for="country" class="cabinet__list-label">COUNTRY<br>
+              <select class="cabinet__list-input cabinet__list-input-country" name="country" id="country">
+                <option value=" "></option>
+                <option value="UA">UKRAINE</option>
+                <option value="AE">UNITED ARAB EMIRATES</option>
+                <option value="GB">UNITED KINGDOM</option>
+                <option value="US">UNITED STATES</option>
+                <option value="UM">UNITED STATES MINOR OUTLYING ISLANDS</option>
+                <!-- <input id="country" type="text" name="country" class="cabinet__list-input"> -->
+              </select>
+            </label>
+          </li>
+          <li class="cabinet__list-item ">
+            <label for="company" class="cabinet__list-label">COMPANY<br>
+              <input id="company" type="text" name="company" class="cabinet__list-input">
+            </label>
+          </li>
+        </ul> 
+       </article>
+       <!-- visually-hidden -->
+       <article class="cabinet__information cabinet__information-account visually-hidden">
+        <ul class="cabinet__list cabinet__list-account">
+          <li class="cabinet__list-item">
+            <label for="username" class="cabinet__list-label">USERNAME<br>
+              <input id="username" type="text" name="username" class="cabinet__list-input" value="sarahbarnes">
+            </label>
+          </li>
+          <li class="cabinet__list-item">
+            <label for="email" class="cabinet__list-label">E-MAIL<br>
+              <input id="email" type="email" name="email" class="cabinet__list-input"value="sarahbbb@gmail.com">
+            </label>
+          </li>
+        </ul>
+        <p class="cabinet__list-account-text">
+          <a href="#" class="cabinet__list-account-link">CHANGE PASSWORD</a>
+        </p>
+       </article>
+     </section>
+    </main>
+    <footer class="footer">
+
+    </footer>
+    <script src="/reload/reload.js"></script>
+  </body>
+</html>

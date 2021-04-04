@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@600&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">    
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>myFixer</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+
+  <body>
+    <header class="header header-cabinet">
+      <ol class="breadcrumb">
+        <li class="breadcrumb__item">
+          <a href="#">Home</a>
+        </li>
+        <li class="breadcrumb__item">
+          <a href="#">My&nbsp;profile</a>
+        </li>
+      </ol>
+      
+      <ol class="personal-settings__list">
+        <li class="personal-settings__item">
+          <span>Faruh Bernandez</span>
+          <ul class="personal-settings__sublist">
+            <li class="personal-settings__subitem">
+              Settings
+            </li>
+            <li class="personal-settings__subitem">
+              Status
+            </li>
+            <li class="personal-settings__subitem">
+              Log Out
+            </li>
+          </ul>
+        </li>
+      </ol>
+    </header>
+    <main class="main main-search">
+     <nav class="main-menu">
+        <a href="#" class="main-menu__logo">
+          <img src="./img/clear_logo.svg" alt="Logo" height="30" width="30">
+        </a>
+        <ul class="main-menu__list">
+          <li class="main-menu__item main-menu__item-active">
+            <a href="#">
+              <img src="./img/search.svg" alt="Search" class="main-menu__img" width="20" height="20">
+            </a>
+          </li>
+          <li class="main-menu__item">
+            <a href="#">
+              <img src="./img/person.svg" alt="My profile" class="main-menu__img" width="20" height="20">
+            </a>
+          </li>
+          <li class="main-menu__item">
+            <a href="#"></a>  
+              <img src="./img/messages.svg" alt="Messages" class="main-menu__img" width="20" height="20">
+            </a>
+          </li>
+          <li class="main-menu__item">
+            <a href="#">
+              <img src="./img/calendar.svg" alt="Calendar" class="main-menu__img" width="20" height="20">
+            </a>
+          </li>
+        </ul>
+     </nav>
+     <section class="search cabinet">
+              <!-- visually-hidden -->
+       <article class="search__query">
+        <ul class="search__query-list query-list">
+          <li class="query-list__item">
+            <label for="location" class="cabinet__list-label">LOCATION<br>
+              <select class="query-list__input cabinet__list-input cabinet__list-input-country" name="location" id="location">
+                <option value=""></option>
+                <option value="UA">UKRAINE</option>
+                <option value="AE">UNITED ARAB EMIRATES</option>
+                <option value="GB">UNITED KINGDOM</option>
+                <option value="US">UNITED STATES</option>
+                <option value="UM">UNITED STATES MINOR OUTLYING ISLANDS</option>
+                <!-- <input id="country" type="text" name="country" class="cabinet__list-input"> -->
+              </select>
+            </label>
+          </li>
+          <li class="query-list__item">
+            <label for="query" class="cabinet__list-label">Search<br>
+              <input class="query-list__input cabinet__list-input" id="query" type="text" name="query" placeholder="Type your query...">
+            </label>
+          </li>
+          <li class="query-list__item">
+            <label for="category" class="cabinet__list-label">Category<br>
+              <select class="query-list__input cabinet__list-input" name="category" id="category">
+                <option value="Category 1">Category 1</option>
+                <option value="Category 2">Category 2</option>
+              </select>
+              <!-- <input id="title" type="text" name="title" class="cabinet__list-input"> -->
+            </label>
+          </li>
+          <li class="query-list__item">
+            <label for="service" class="cabinet__list-label">SERVICE<br>
+              <select class="query-list__input cabinet__list-input" name="service" id="service">
+                <option value="1 services">1 services</option>
+                <option value="2 services">2 services</option>
+                <option value="3 services">3 services</option>
+              </select>
+              <!-- <input id="title" type="text" name="title" class="cabinet__list-input"> -->
+            </label>
+          </li>
+          <li class="query-list__item">
+            <label for="period" class="cabinet__list-label">PERIOD<br>
+              <input class="query-list__input cabinet__list-input" id="period" type="date" name="period">
+            </label>
+          </li>
+          <li class="query-list__item">
+            <label for="button" class="cabinet__list-label">
+              <input class="query-list__input login-form__submit query-list__btn cabinet__list-input" id="button" type="button" name="button" value="SEARCH">
+            </label>
+          </li>
+        </ul> 
+       </article>
+       <!-- visually-hidden -->
+       <article class="search__result result">
+        <div class="result__header-menu">
+          <a href="#" class="result__header-menu-button">
+            SHOW MAP
+          </a>
+          <a href="#" class="result__header-menu-button visually-hidden">
+            SHOW Results
+          </a>
+          <ul class="result__sort-list">
+            <li class="result__sort-item">
+              <span class="result__sort-web"></span>
+            </li>
+            <li class="result__sort-item">
+              <input class="result__sort-input" type="radio" name="sort" id="sort_price" checked>
+              <label class="result__sort-label" for="sort_price">
+              by price
+              </label>
+            </li>
+            <li class="result__sort-item">
+              <input  class="result__sort-input" type="radio" name="sort" id="sort_rating">
+              <label class="result__sort-label" for="sort_rating">
+              by rating
+              </label>
+            </li>
+          </ul>
+        </div>
+        <div class="result__map visually-hidden">
+          <iframe class="result__map-frame" src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d15952.26623728842!2d29.235670566558838!3d-1.6979089231312707!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1suk!2scd!4v1588683007330!5m2!1suk!2scd" height="auto" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+        </div> 
+        <ul class="result__list ">
+          <li class="result__list-item">
+            <img class="result__list-item-img" src="../img/profile_photo/richard_1.png" alt="account foto">
+            <div class="result__list-item-description item-description">
+              <p class="item-description__title">
+                Richard Thompson
+                <span class="item-description__rating"></span>
+              </p>
+              <p class="item-description__location">
+                Vancouver, Canada
+              </p>
+              <p class="item-description__stack">
+                <span class="item-description__subtitle">Stack:</span> Python, Django, Sketch 
+                <span class="item-description__btn-more">More</span>
+              </p>
+              <p class="item-description__stack item-description__bdr">
+                <span class="item-description__subtitle">Base Daily Rate:</span> $ 1,200 USD
+              </p>
+            </div>
+          </li>
+
+          <li class="result__list-item">
+            <img class="result__list-item-img" src="../img/profile_photo/richard_2.png" alt="account foto">
+            <div class="result__list-item-description item-description">
+              <p class="item-description__title">
+                Richard Thompson
+                <span class="item-description__rating"></span>
+              </p>
+              <p class="item-description__location">
+                Vancouver, Canada
+              </p>
+              <p class="item-description__stack">
+                <span class="item-description__subtitle">Stack:</span> Python, Django, Sketch 
+                <span class="item-description__btn-more">More</span>
+              </p>
+              <p class="item-description__bdr">
+                <span class="item-description__subtitle">Base Daily Rate:</span> $ 1,200 USD
+              </p>
+            </div>
+          </li>
+
+          <li class="result__list-item">
+            <img class="result__list-item-img" src="../img/profile_photo/richard_3.png" alt="account foto">
+            <div class="result__list-item-description item-description">
+              <p class="item-description__title">
+                Richard Thompson
+                <span class="item-description__rating"></span>
+              </p>
+              <p class="item-description__location">
+                Vancouver, Canada
+              </p>
+              <p class="item-description__stack">
+                <span class="item-description__subtitle">Stack:</span> NodeJs, AngularJs 
+                <span class="item-description__btn-more">More</span>
+              </p>
+              <p class="item-description__bdr">
+                <span class="item-description__subtitle">Base Daily Rate:</span> $ 1,200 USD
+              </p>
+            </div>
+          </li>
+
+          <li class="result__list-item">
+            <img class="result__list-item-img" src="../img/profile_photo/richard_4.png" alt="account foto">
+            <div class="result__list-item-description item-description">
+              <p class="item-description__title">
+                Richard Thompson
+                <span class="item-description__rating"></span>
+              </p>
+              <p class="item-description__location">
+                Vancouver, Canada
+              </p>
+              <p class="item-description__stack">
+                <span class="item-description__subtitle">Stack:</span> VueJs, React Native, QA
+                <span class="item-description__btn-more">More</span>
+              </p>
+              <p class="item-description__bdr">
+                <span class="item-description__subtitle">Base Daily Rate:</span> $ 1,200 USD
+              </p>
+            </div>
+          </li>
+
+          <li class="result__list-item">
+            <img class="result__list-item-img" src="../img/profile_photo/richard_5.png" alt="account foto">
+            <div class="result__list-item-description item-description">
+              <p class="item-description__title">
+                Richard Thompson
+                <span class="item-description__rating"></span>
+              </p>
+              <p class="item-description__location">
+                Vancouver, Canada
+              </p>
+              <p class="item-description__stack">
+                <span class="item-description__subtitle">Stack:</span> Php, Smesitel
+                <span class="item-description__btn-more visually-hidden">More</span>
+              </p>
+              <p class="item-description__bdr">
+                <span class="item-description__subtitle">Base Daily Rate:</span> $ 1,200 USD
+              </p>
+            </div>
+          </li>
+
+          <li class="result__list-item">
+            <img class="result__list-item-img" src="../img/profile_photo/richard_6.png" alt="account foto">
+            <div class="result__list-item-description item-description">
+              <p class="item-description__title">
+                Richard Thompson
+                <span class="item-description__rating"></span>
+              </p>
+              <p class="item-description__location">
+                Vancouver, Canada
+              </p>
+              <p class="item-description__stack">
+                <span class="item-description__subtitle">Stack:</span> React, jQuery
+                <span class="item-description__btn-more visually-hidden">More</span>
+              </p>
+              <p class="item-description__bdr">
+                <span class="item-description__subtitle">Base Daily Rate:</span> $ 1,200 USD
+              </p>
+            </div>
+          </li>
+        </ul>
+       </article>
+       
+     </section>
+    </main>
+    <footer class="footer">
+
+    </footer>
+    <script src="/reload/reload.js"></script>
+  </body>
+</html>

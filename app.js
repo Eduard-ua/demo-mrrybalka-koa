@@ -11,7 +11,8 @@ const router = new Router();
 
 const port = process.env.PORT || 3001;
 
-const render = views(path.join(__dirname, '/src/templates'), {
+
+const render = views(path.join(__dirname, '/src/templates/views/'), {
   extension: 'njk',
   map: {
     njk: 'nunjucks',

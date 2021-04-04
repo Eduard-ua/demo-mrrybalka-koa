@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@600&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">    
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>myFixer</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+
+  <body>
+    <header class="header header-cabinet">
+      <ol class="breadcrumb">
+        <li class="breadcrumb__item">
+          <a href="#">Home</a>
+        </li>
+        <li class="breadcrumb__item">
+          <a href="#">Manage&nbsp;users</a>
+        </li>
+      </ol>
+      
+      <ol class="personal-settings__list">
+        <li class="personal-settings__item">
+          <span>Faruh Bernandez</span>
+          <ul class="personal-settings__sublist">
+            <li class="personal-settings__subitem">
+              Settings
+            </li>
+            <li class="personal-settings__subitem">
+              Status
+            </li>
+            <li class="personal-settings__subitem">
+              Log Out
+            </li>
+          </ul>
+        </li>
+      </ol>
+    </header>
+    <main class="main main-search">
+     <nav class="main-menu">
+        <a href="#" class="main-menu__logo">
+          <img src="./img/clear_logo.svg" alt="Logo" height="30" width="30">
+        </a>
+        <ul class="main-menu__list">
+          <li class="main-menu__item main-menu__item-active">
+            <a href="#">
+              <img src="./img/manage_users.svg" alt="Manage" class="main-menu__img" width="20" height="20">
+            </a>
+          </li>
+          <!-- <li class="main-menu__item main-menu__item-active">
+            <a href="#">
+              <img src="./img/search.svg" alt="Search" class="main-menu__img" width="20" height="20">
+            </a>
+          </li>
+          <li class="main-menu__item">
+            <a href="#">
+              <img src="./img/person.svg" alt="My profile" class="main-menu__img" width="20" height="20">
+            </a>
+          </li>
+          <li class="main-menu__item">
+            <a href="#"></a>  
+              <img src="./img/messages.svg" alt="Messages" class="main-menu__img" width="20" height="20">
+            </a>
+          </li>
+          <li class="main-menu__item">
+            <a href="#">
+              <img src="./img/calendar.svg" alt="Calendar" class="main-menu__img" width="20" height="20">
+            </a>
+          </li> -->
+        </ul>
+     </nav>
+     <section class="search cabinet">
+              <!-- visually-hidden -->
+       <article class="manage">
+
+        <p class="manage__search-field">
+          <label class="manage__search-label" for="manage__search-input"></label>
+          <input class="manage__search-input" id="manage__search-input" type="text" placeholder="Type here to search...">
+        </p>
+        <table class="manage__table">
+          <tr class="manage__table-tr">
+            <th class="manage__table-th">
+              FIRST NAME
+            </th>
+            <th class="manage__table-th">
+              LAST NAME
+            </th>
+            <th class="manage__table-th">
+              COUNTRY
+            </th>
+            <th class="manage__table-th">
+              STATUS
+            </th>
+            <th class="manage__table-th">
+              LEVEL
+            </th>
+            <th class="manage__table-th">
+              E-MAIL
+            </th>
+            <th class="manage__table-th manage__table-last-column">
+              
+            </th>
+          </tr>
+
+          <tr class="manage__table-tr">
+            <td class="manage__table-td" data-th="FIRST NAME">
+              Richard
+            </td>
+            <td class="manage__table-td" data-th="LAST NAME">
+              Richard
+            </td>
+            <td class="manage__table-td" data-th="COUNTRY">
+              Australia
+            </td>
+            <td class="manage__table-td" data-th="STATUS">
+              Requested
+            </td>
+            <td class="manage__table-td manage__table-td-level" data-th="LEVEL">
+              <select class="manage__table-td-select" name="Level" id="level">
+                <option class="manage__table-td-option" value="Gold">Gold</option>
+                <option class="manage__table-td-option" value="Silver">Silver</option>
+                <option class="manage__table-td-option" value="Bronze">Bronze</option>
+              </select>
+            </td>
+            <td class="manage__table-td" data-th="E-MAIL">
+              rfrome@gmail.com
+            </td>
+            <td class="manage__table-last-column">
+              <span class="manage__table-delete-row"></span>
+            </td>
+          </tr>
+
+            <tr class="manage__table-tr">
+              <td class="manage__table-td" data-th="FIRST NAME">
+                Tiffany
+              </td>
+              <td class="manage__table-td" data-th="LAST NAME">
+                Tiffany
+              </td>
+              <td class="manage__table-td" data-th="COUNTRY">
+                Australia
+              </td>
+              <td class="manage__table-td" data-th="STATUS">
+                Expected
+              </td>
+              <td class="manage__table-td manage__table-td-level" data-th="LEVEL">
+                <select class="manage__table-td-select" name="Level" id="level">
+                  <option class="manage__table-td-option" value="Gold">Gold</option>
+                  <option class="manage__table-td-option" value="Silver">Silver</option>
+                  <option class="manage__table-td-option" value="Bronze">Bronze</option>
+                </select>
+              </td>
+              <td class="manage__table-td" data-th="E-MAIL">
+                rfrome@gmail.com
+              </td>
+              <td class="manage__table-last-column">
+                <span class="manage__table-delete-row"></span>
+              </td>
+            </tr>
+
+            <tr class="manage__table-tr">
+              <td class="manage__table-td" data-th="FIRST NAME">
+                Richard
+              </td>
+              <td class="manage__table-td" data-th="LAST NAME">
+                Richard
+              </td>
+              <td class="manage__table-td" data-th="COUNTRY">
+                Australia
+              </td>
+              <td class="manage__table-td" data-th="STATUS">
+                Completed
+              </td>
+              <td class="manage__table-td manage__table-td-level" data-th="LEVEL">
+                <select class="manage__table-td-select" name="Level" id="level">
+                  <option class="manage__table-td-option" value="Gold">Gold</option>
+                  <option class="manage__table-td-option" value="Silver">Silver</option>
+                  <option class="manage__table-td-option" value="Bronze">Bronze</option>
+                </select>
+              </td>
+              <td class="manage__table-td" data-th="E-MAIL">
+                rfrome@gmail.com
+              </td>
+              <td class="manage__table-last-column">
+                <span class="manage__table-delete-row"></span>
+              </td>
+            </tr>
+
+            <tr class="manage__table-tr">
+              <td class="manage__table-td" data-th="FIRST NAME">
+                Richard
+              </td>
+              <td class="manage__table-td" data-th="LAST NAME">
+                Richard
+              </td>
+              <td class="manage__table-td" data-th="COUNTRY">
+                Australia
+              </td>
+              <td class="manage__table-td" data-th="STATUS">
+                Completed
+              </td>
+              <td class="manage__table-td manage__table-td-level" data-th="LEVEL">
+                <select class="manage__table-td-select" name="Level" id="level">
+                  <option class="manage__table-td-option" value="Gold">Gold</option>
+                  <option class="manage__table-td-option" value="Silver">Silver</option>
+                  <option class="manage__table-td-option" value="Bronze">Bronze</option>
+                </select>
+              </td>
+              <td class="manage__table-td" data-th="E-MAIL">
+                rfrome@gmail.com
+              </td>
+              <td class="manage__table-last-column">
+                <span class="manage__table-delete-row"></span>
+              </td>
+            </tr>
+            <tr class="manage__table-tr">
+              <td class="manage__table-td" data-th="FIRST NAME">
+                Richard
+              </td>
+              <td class="manage__table-td" data-th="LAST NAME">
+                Richard
+              </td>
+              <td class="manage__table-td" data-th="COUNTRY">
+                Australia
+              </td>
+              <td class="manage__table-td" data-th="STATUS">
+                Expected
+              </td>
+              <td class="manage__table-td manage__table-td-level" data-th="LEVEL">
+                <select class="manage__table-td-select" name="Level" id="level">
+                  <option class="manage__table-td-option" value="Gold">Gold</option>
+                  <option class="manage__table-td-option" value="Silver">Silver</option>
+                  <option class="manage__table-td-option" value="Bronze">Bronze</option>
+                </select>
+              </td>
+              <td class="manage__table-td" data-th="E-MAIL">
+                rfrome@gmail.com
+              </td>
+              <td class="manage__table-last-column">
+                <span class="manage__table-delete-row"></span>
+              </td>
+            </tr>
+            
+            <tr class="manage__table-tr">
+              <td class="manage__table-td" data-th="FIRST NAME">
+                Richard
+              </td>
+              <td class="manage__table-td" data-th="LAST NAME">
+                Richard
+              </td>
+              <td class="manage__table-td" data-th="COUNTRY">
+                Australia
+              </td>
+              <td class="manage__table-td" data-th="STATUS">
+                Completed
+              </td>
+              <td class="manage__table-td manage__table-td-level" data-th="LEVEL">
+                <select class="manage__table-td-select" name="Level" id="level">
+                  <option class="manage__table-td-option" value="Gold">Gold</option>
+                  <option class="manage__table-td-option" value="Silver">Silver</option>
+                  <option class="manage__table-td-option" value="Bronze">Bronze</option>
+                </select>
+              </td>
+              <td class="manage__table-td" data-th="E-MAIL">
+                rfrome@gmail.com
+              </td>
+              <td class="manage__table-last-column">
+                <span class="manage__table-delete-row"></span>
+              </td>
+            </tr>
+          <!-- <tr>
+            <td data-th="Movie Title">American Graffiti</td>
+            <td data-th="Genre">Comedy, Drama</td>
+            <td data-th="Year">1973</td>
+            <td data-th="Gross">$115,000,000</td>
+            <td data-th="Gross">$16,295,774</td>
+            <td data-th="Gross">$16,295,774</td>
+          </tr> -->
+        </table>
+       </article>     
+     </section>
+    </main>
+    <footer class="footer">
+
+    </footer>
+    <script src="/reload/reload.js"></script>
+  </body>
+</html>

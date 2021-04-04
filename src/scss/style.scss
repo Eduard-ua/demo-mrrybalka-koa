@@ -1,0 +1,12 @@
+// system styles
+@import "resets/normalize";
+
+// all the styles
+@import "main";
+
+@import "password-reset/elements_index";
+
+@import "sign_up/form-style";
+@import "cabinet/cabinet_index";
+@import "search/search_index";
+@import "manage/manage_index";
