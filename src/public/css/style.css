@@ -173,7 +173,7 @@ th {
   padding: 0; }
 
 body {
-  background-color: #F9FAFC;
+  background-color: #f9fafc;
   color: #000000;
   font-family: "Roboto", "Helvetica Neue", sans-serif;
   font-size: 14px;
@@ -219,7 +219,7 @@ body {
   .header__link {
     font-weight: bold;
     letter-spacing: 0.28px;
-    color: #2A74DB;
+    color: #2a74db;
     text-decoration: none; }
 
 .main {
@@ -238,7 +238,7 @@ body {
 .login-form {
   max-width: 632px;
   padding: 80px 115px;
-  background: #FFFFFF;
+  background: #ffffff;
   box-shadow: 0px 5px 40px rgba(0, 45, 113, 0.06);
   border-radius: 10px;
   margin-bottom: 50px;
@@ -257,7 +257,7 @@ body {
     color: #002396;
     max-width: 400px; }
     .login-form__label-password {
-      color: #01134E; }
+      color: #01134e; }
   .login-form__block-name {
     display: flex;
     justify-content: space-between;
@@ -279,9 +279,9 @@ body {
       .login-form__element-name {
         width: 100%; } }
   .login-form__input {
-    border: 2px solid #F2F2F2;
+    border: 2px solid #f2f2f2;
     border-radius: 2px;
-    background-color: #FCFCFC;
+    background-color: #fcfcfc;
     padding: 10px;
     color: rgba(135, 144, 167, 0.57);
     outline: none;
@@ -296,7 +296,7 @@ body {
     color: rgba(135, 144, 167, 0.57); }
   .login-form__input:focus {
     color: #222428;
-    border-left-color: #2A74DB; }
+    border-left-color: #2a74db; }
   .login-form__helper {
     text-decoration: none;
     font-size: 12px;
@@ -308,9 +308,18 @@ body {
     color: #ffffff;
     padding: 10px 60px;
     margin-top: 30px;
-    background: #0AD69C;
-    border-radius: 2px;
-    border: none; }
+    background: #0ad69c;
+    border: none;
+    border: 2px solid #0ad69c;
+    border-radius: 2px; }
+    .login-form__submit:hover {
+      color: #0ad69c;
+      background-color: white;
+      border-width: 2px;
+      border-style: solid;
+      border-color: #0ad69c;
+      border-image: initial;
+      transition: color 0.5s linear 0s, background 0.5s linear 0s, border 0.5s linear 0s; }
 
 .header {
   position: relative; }
