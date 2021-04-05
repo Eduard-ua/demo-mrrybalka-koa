@@ -40,6 +40,12 @@ async function signUp2(ctx) {
   });
 }
 
+async function signUp3(ctx) {
+  await ctx.render('sign_up_5', {
+    title: 'Sign Up',
+  });
+}
+
 async function profile(ctx) {
   await ctx.render('my_profile', {
     title: 'Profile',
@@ -66,6 +72,7 @@ module.exports = {
   signIn4,
   signUp,
   signUp2,
+  signUp3,
   profile,
   search,
   users,

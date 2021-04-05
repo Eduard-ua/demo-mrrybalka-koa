@@ -11,6 +11,7 @@ router.get('signIn3', controllers.signIn3);
 router.get('signIn4', controllers.signIn4);
 router.get('signUp', controllers.signUp);
 router.get('signUp2', controllers.signUp2);
+router.get('signUp3', controllers.signUp3);
 router.get('profile', controllers.profile);
 router.get('search', controllers.search);
 router.get('users', controllers.users);
