@@ -27,7 +27,8 @@
     "node-sass": "^5.0.0",
     "nodemon": "^2.0.7",
     "nunjucks": "^3.2.3",
-    "path": "^0.12.7"
+    "path": "^0.12.7",
+    "pg": "^8.6.0"
   },
   "description": ""
 }
