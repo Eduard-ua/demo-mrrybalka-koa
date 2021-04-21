@@ -3,9 +3,34 @@ const path = require('path');
 const Router = require('koa-router');
 const views = require('koa-views');
 const serve = require('koa-static');
+const bodyParser = require('koa-bodyparser');
+
+
 const globalRouter = require('./src/router');
 
+
+
+
+// pool.query('SELECT NOW()', (err, res) => {
+//   console.log(err, res);
+//   pool.end();
+// });
+
 const app = new Koa();
+
+app.use(bodyParser());
+app.use(async (ctx, next) => {
+  try {
+    await next();
+  } catch (err) {
+    
+    if (err.isJoi) {
+      ctx.throw(400, err.details[0].message);
+    }
+    console.log(err);
+    ctx.throw(400, 'Something wrong');
+  }
+});
 
 const router = new Router();
 

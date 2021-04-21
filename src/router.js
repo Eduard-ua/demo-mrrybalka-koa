@@ -15,6 +15,8 @@ router.get('signUp3', controllers.signUp3);
 router.get('profile', controllers.profile);
 router.get('search', controllers.search);
 router.get('users', controllers.users);
+router.get('user/:userId', controllers.home);
+router.post('user', controllers.createUser);
 
 module.exports = {
   router,

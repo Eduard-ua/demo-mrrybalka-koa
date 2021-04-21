@@ -1,8 +1,44 @@
+const db = require('./db/db');
+const validator = require('./validator');
+
 async function home(ctx) {
+  const { userId } = ctx.request.params;
+  const usersResponse = await db.query(`SELECT * FROM "user" WHERE id = ${userId}`);
+  if (!usersResponse.rowCount) {
+    ctx.throw(400, 'User doesn`t exist');
+  }
+  
+  const name = usersResponse.rows[0].fname;
+  
   await ctx.render('index', {
-    title: 'Home',
-  });
+    title: name,
+   });
 }
+
+async function createUser(ctx) {
+  const { body } = ctx.request;
+
+  await validator.schema.validateAsync(body);
+
+  const createUserResponse = await db.query(`INSERT INTO "user" (fname, lname, isActive) VALUES  ('${body.fname}', '${body.lname}', ${body.active}) RETURNING *`);
+
+  const user = { ...createUserResponse.rows[0] };
+  ctx.status = 201;
+  ctx.body = {
+    id: user.id,
+    fname: user.fname,
+    lname: user.lname,
+  };
+}
+
+
+// async function home(ctx) {
+//   const usersPromise = await db.query('SELECT * FROM "user"');
+//   const name = usersPromise.rows[0].fname;
+//   await ctx.render('index', {
+//     title: 'Home',
+//   });
+// }
 
 async function signIn(ctx) {
   await ctx.render('sign_in_1', {
@@ -65,6 +101,7 @@ async function users(ctx) {
 }
 
 module.exports = {
+ 
   home,
   signIn,
   signIn2,
@@ -76,4 +113,5 @@ module.exports = {
   profile,
   search,
   users,
+  createUser,
 };
