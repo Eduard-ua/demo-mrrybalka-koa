@@ -20,6 +20,7 @@
   },
   "dependencies": {
     "gulp": "^4.0.2",
+    "ioredis": "^4.26.0",
     "joi": "^17.4.0",
     "koa": "^2.13.1",
     "koa-bodyparser": "^4.3.0",

@@ -1,6 +1,7 @@
 const Koa = require('koa');
 const path = require('path');
 const Router = require('koa-router');
+const Redis = require('ioredis');
 const views = require('koa-views');
 const serve = require('koa-static');
 const bodyParser = require('koa-bodyparser');
@@ -8,15 +9,11 @@ const bodyParser = require('koa-bodyparser');
 
 const globalRouter = require('./src/router');
 
-
-
-
-// pool.query('SELECT NOW()', (err, res) => {
-//   console.log(err, res);
-//   pool.end();
-// });
-
 const app = new Koa();
+
+const redis = new Redis('redis://localhost:6379');
+
+// app.context.redis = redis;
 
 app.use(bodyParser());
 app.use(async (ctx, next) => {

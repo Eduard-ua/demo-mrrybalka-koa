@@ -4,6 +4,8 @@ const validator = require('./validator');
 async function home(ctx) {
   const { userId } = ctx.request.params;
   const usersResponse = await db.query(`SELECT * FROM "user" WHERE id = ${userId}`);
+  // const userInRedis = await ctx.redis.get(userId);
+  // console.log(JSON.parse(userInRedis));
   if (!usersResponse.rowCount) {
     ctx.throw(400, 'User doesn`t exist');
   }
@@ -23,6 +25,8 @@ async function createUser(ctx) {
   const createUserResponse = await db.query(`INSERT INTO "user" (fname, lname, isActive) VALUES  ('${body.fname}', '${body.lname}', ${body.active}) RETURNING *`);
 
   const user = { ...createUserResponse.rows[0] };
+
+  // await ctx.redis.set(user.id, JSON.stringify(user));
   ctx.status = 201;
   ctx.body = {
     id: user.id,
