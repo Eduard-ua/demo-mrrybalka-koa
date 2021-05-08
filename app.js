@@ -5,13 +5,14 @@ const Redis = require('ioredis');
 const views = require('koa-views');
 const serve = require('koa-static');
 const bodyParser = require('koa-bodyparser');
+const cors = require('@koa/cors');
 
 
 const globalRouter = require('./src/router');
 
 const app = new Koa();
-
-const redis = new Redis('redis://localhost:6379');
+app.use(cors());
+// const redis = new Redis('redis://localhost:6379');
 
 // app.context.redis = redis;
 
