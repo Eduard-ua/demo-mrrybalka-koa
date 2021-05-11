@@ -10,11 +10,11 @@ async function home(ctx) {
     ctx.throw(400, 'User doesn`t exist');
   }
   
-  const name = usersResponse.rows[0].fname;
-  
-  await ctx.render('index', {
-    title: name,
-   });
+  const user = usersResponse.rows[0];
+  ctx.body = {
+    user,
+  };
+
 }
 
 async function createUser(ctx) {
@@ -98,10 +98,20 @@ async function search(ctx) {
   });
 }
 
-async function users(ctx) {
-  await ctx.render('users', {
+async function usersAll(ctx) {
+  await ctx.render('usersAll', {
     title: 'Users',
   });
+}
+
+async function userList(ctx) {
+  const userListResponse = await db.query('SELECT * FROM "user"');
+
+  const users = userListResponse.rows;
+
+  ctx.body = {
+    users,
+  };
 }
 
 module.exports = {
@@ -116,6 +126,7 @@ module.exports = {
   signUp3,
   profile,
   search,
-  users,
+  usersAll,
   createUser,
+  userList,
 };

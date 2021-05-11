@@ -14,9 +14,10 @@ router.get('signUp2', controllers.signUp2);
 router.get('signUp3', controllers.signUp3);
 router.get('profile', controllers.profile);
 router.get('search', controllers.search);
-router.get('users', controllers.users);
+router.get('usersAll', controllers.usersAll);
 router.get('user/:userId', controllers.home);
 router.post('user', controllers.createUser);
+router.get('users', controllers.userList);
 
 module.exports = {
   router,
