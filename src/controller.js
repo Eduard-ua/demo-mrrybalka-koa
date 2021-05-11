@@ -22,7 +22,8 @@ async function createUser(ctx) {
 
   await validator.schema.validateAsync(body);
 
-  const createUserResponse = await db.query(`INSERT INTO "user" (fname, lname, isActive) VALUES  ('${body.fname}', '${body.lname}', ${body.active}) RETURNING *`);
+  const createUserResponse = await db.query(`INSERT INTO "user" (fname, lname, isActive, password, email) 
+  VALUES  ('${body.fname}', '${body.lname}', ${body.active}, '${body.password}', '${body.email}') RETURNING *`);
 
   const user = { ...createUserResponse.rows[0] };
 
@@ -32,7 +33,9 @@ async function createUser(ctx) {
     id: user.id,
     fname: user.fname,
     lname: user.lname,
+    email: user.email,
   };
+
 }
 
 
