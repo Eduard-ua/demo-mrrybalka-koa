@@ -1,4 +1,5 @@
 const Router = require('koa-router');
+// const passport = require('koa-passport');
 
 const controllers = require('./controller');
 
@@ -18,6 +19,8 @@ router.get('usersAll', controllers.usersAll);
 router.get('user/:userId', controllers.home);
 router.post('user', controllers.createUser);
 router.get('users', controllers.userList);
+router.post('sign-in', controllers.SignLin);
+//router.post('sign-in', passport.authenticate('local'), controllers.SignLin);
 
 module.exports = {
   router,

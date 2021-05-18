@@ -1,3 +1,6 @@
+const crypto = require('crypto');
+const passport = require('koa-passport');
+
 const db = require('./db/db');
 const validator = require('./validator');
 
@@ -22,6 +25,8 @@ async function createUser(ctx) {
 
   await validator.schema.validateAsync(body);
 
+  body.password = crypto.pbkdf2Sync(body.password, 'salt', 100000, 64, 'sha256').toString('hex');
+
   const createUserResponse = await db.query(`INSERT INTO "user" (fname, lname, isActive, password, email) 
   VALUES  ('${body.fname}', '${body.lname}', ${body.active}, '${body.password}', '${body.email}') RETURNING *`);
 
@@ -35,8 +40,21 @@ async function createUser(ctx) {
     lname: user.lname,
     email: user.email,
   };
-
 }
+
+async function SignLin(ctx) {
+  await passport.authenticate('local', (err, user) => {
+    if (user) {
+      ctx.body = user;
+    } else {
+      ctx.status = 400;
+      if (err) {
+        ctx.body = { error: err };
+      }
+    }
+  })(ctx);
+}
+
 
 
 // async function home(ctx) {
@@ -132,4 +150,5 @@ module.exports = {
   usersAll,
   createUser,
   userList,
+  SignLin,
 };

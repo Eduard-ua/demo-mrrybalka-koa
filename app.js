@@ -1,7 +1,7 @@
 const Koa = require('koa');
 const path = require('path');
 const Router = require('koa-router');
-const Redis = require('ioredis');
+//const Redis = require('ioredis');
 const views = require('koa-views');
 const serve = require('koa-static');
 const bodyParser = require('koa-bodyparser');
@@ -9,6 +9,9 @@ const cors = require('@koa/cors');
 
 
 const globalRouter = require('./src/router');
+const passport = require('./src/libs/passport/koaPassport');
+
+passport.initialize();
 
 const app = new Koa();
 app.use(cors());
@@ -25,8 +28,16 @@ app.use(async (ctx, next) => {
       ctx.throw(400, err.details[0].message);
     }
     console.log(err);
-    ctx.throw(400, 'Something wrong');
+    ctx.throw(err.status || 500, err.message);
+  
+  
+    if (err.isPassport) {
+      ctx.throw(400, err.message);
+    }
+    console.log(err);
+    ctx.throw(err.status || 500, err.message);
   }
+
 });
 
 const router = new Router();
