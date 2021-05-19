@@ -1,23 +1,64 @@
 const crypto = require('crypto');
 const passport = require('koa-passport');
+const jwt = require('jwt-simple');
 
 const db = require('./db/db');
 const validator = require('./validator');
+const { UserDB } = require('./models/user/UserDB');
 
 async function home(ctx) {
-  const { userId } = ctx.request.params;
-  const usersResponse = await db.query(`SELECT * FROM "user" WHERE id = ${userId}`);
-  // const userInRedis = await ctx.redis.get(userId);
-  // console.log(JSON.parse(userInRedis));
-  if (!usersResponse.rowCount) {
-    ctx.throw(400, 'User doesn`t exist');
-  }
+  // const { userId } = ctx.request.params;
+  // const usersResponse = await db.query(`SELECT * FROM "user" WHERE id = ${userId}`);
+  // // const userInRedis = await ctx.redis.get(userId);
+  // // console.log(JSON.parse(userInRedis));
+  // if (!usersResponse.rowCount) {
+  //   ctx.throw(400, 'User doesn`t exist');
+  // }
   
-  const user = usersResponse.rows[0];
+  // const user = usersResponse.rows[0];
   ctx.body = {
-    user,
+    success: true,
   };
 
+}
+
+async function refresh(ctx) {
+  const token = ctx.headers.authorization.split(' ')[1];
+  const decodedToken = jwt.decode(token, 'super_secret_refresh');
+
+  if (decodedToken.expiresIn <= new Date().getTime()) {
+    const error = new Error('Refresh token expired, please sign in into your account.');
+    error.status = 400;
+
+    throw error;
+  }
+
+  const user = await UserDB.getUserByEmail(decodedToken.email);
+
+  const accessToken = {
+    id: user.id,
+    expiresIn: new Date().setTime(new Date().getTime() + 200000),
+  };
+  const refreshToken = {
+    email: user.email,
+    expiresIn: new Date().setTime(new Date().getTime() + 1000000),
+  };
+
+  ctx.body = {
+    accessToken: jwt.encode(accessToken, 'super_secret'),
+    accessTokenExpirationDate: accessToken.expiresIn,
+    refreshToken: jwt.encode(refreshToken, 'super_secret_refresh'),
+    refreshTokenExpirationDate: refreshToken.expiresIn,
+  };
+}
+
+  // static async userList(ctx) {
+  async function userList(ctx) {
+    const users = (await UserDB.userList()).map((user) => user.getInfo());
+
+    ctx.body = {
+      users,
+    };
 }
 
 async function createUser(ctx) {
@@ -149,6 +190,7 @@ module.exports = {
   search,
   usersAll,
   createUser,
+  refresh,
   userList,
   SignLin,
 };

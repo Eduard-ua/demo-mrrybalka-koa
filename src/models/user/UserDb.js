@@ -3,7 +3,28 @@ const crypto = require('crypto');
 const db = require('../../db/db');
 //const { User } = require('./UserDb');
 
-class UserDb {
+class UserDB {
+  static async getUserById(id) {
+    const userResponse = await db.query(`SELECT * FROM "user" WHERE id = ${id}`);
+
+    if (!userResponse.rowCount) {
+      throw new Error('User does not exist'); //with id: ${id},
+    }
+
+    // return new User(userResponse.rows[0]);
+    return { ...userResponse.rows[0] };
+  }
+
+  static async getUserByEmail(email) {
+    const userResponse = await db.query(`SELECT * FROM "user" WHERE email = '${email}'`);
+
+    if (!userResponse.rowCount) {
+      throw new Error(`User with email: ${email}, does not exist`);
+    }
+
+    return { ...userResponse.rows[0] };
+  }
+
   static async checkPassword(email, password) {
     const usersResponse = await db.query(`SELECT * FROM "user" WHERE email = '${email}'`);
     if (!usersResponse.rowCount) {
@@ -27,13 +48,13 @@ class UserDb {
   }
 }
 
-module.exports = { UserDb };
-
+module.exports = { UserDB };
 
 
 
 
 /*
+
 class UserDB {
   static async getUserById(id) {
     const userResponse = await db.query(`SELECT * FROM "user" WHERE id = ${id}`);

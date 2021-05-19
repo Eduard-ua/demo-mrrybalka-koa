@@ -1,7 +1,7 @@
 const LocalStrategy = require('passport-local');
-// const jwt = require('jwt-simple');
+const jwt = require('jwt-simple');
 
-const { UserDb } = require('../../models/user/UserDb');
+const { UserDB } = require('../../models/user/UserDB');
 
 const opts = {
   usernameField: 'email',
@@ -11,22 +11,27 @@ const opts = {
 };
 
 module.exports = new LocalStrategy(opts, async (req, email, password, done) => {
-  UserDb.checkPassword(email, password).then((checkPasswordResponse) => {
+  UserDB.checkPassword(email, password).then((checkPasswordResponse) => {
     if (!checkPasswordResponse.flag) {
       return done({ message: checkPasswordResponse.message }, false);
     }
 
     const { user } = checkPasswordResponse;
 
-    // const accessToken = {
-    //   id: user.getId(),
-    //   expiresIn: new Date().setTime(new Date().getTime() + 2000000),
-    // };
+    const accessTokenPayload = {
+      id: user.id,
+      expiresIn: new Date().setTime(new Date().getTime() + 200000),
+    };
 
-    // const refreshToken = {
-    //   email: user.email,
-    //   expiresIn: new Date().setTime(new Date().getTime() + 1000000),
-    // };
+    const refreshTokenPayload = {
+      email: user.email,
+      expiresIn: new Date().setTime(new Date().getTime() + 1000000),
+    };
+
+    const accessToken = jwt.encode(accessTokenPayload, 'super_secret');
+    const refreshToken = jwt.encode(refreshTokenPayload, 'super_secret_refresh');
+
+    user.tokens = { accessToken, refreshToken };
 
     // const responseData = user.getInfo();
 
